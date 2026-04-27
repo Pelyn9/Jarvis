@@ -1,58 +1,162 @@
-const OFFLINE_RESPONSES = {
-  greeting: [
-    "Good day, Sir. JARVIS is online and ready to assist. How may I serve you today?",
-    "Hello, Sir. Systems are fully operational. What shall we work on?",
-    "At your service, Sir. JARVIS is online and standing by.",
-  ],
-  coding: [
-    "Most certainly, Sir. I'd be happy to assist with your coding task. What programming challenge are we tackling today?",
-    "Consider it done, Sir. I'll analyze the requirements and provide a solution. What is the nature of the project?",
-    "Right away, Sir. Whether it's debugging, refactoring, or generating new code, I'm at your disposal.",
-  ],
-  help: [
-    "Of course, Sir. I'm here to help with coding, debugging, UI design, documentation, or any technical challenge you face.",
-    "Always delighted to assist, Sir. I can help with code generation, bug fixes, explanations, and so much more.",
-    "At your service. My capabilities include coding assistance, troubleshooting, UI generation, and general technical support.",
-  ],
-  question: [
-    "An excellent question, Sir. Let me provide a comprehensive answer to that.",
-    "Most insightful inquiry, Sir. I'll address that with precision.",
-    "Good thinking, Sir. Here's what I know on that subject.",
-  ],
-  thanks: [
-    "You're most welcome, Sir. Always a pleasure to be of service.",
-    "Not at all, Sir. Happy to assist whenever you need.",
-    "My pleasure entirely, Sir. Feel free to ask if there's anything else.",
-  ],
-  goodbye: [
-    "Until next time, Sir. JARVIS signing off.",
-    "Goodbye, Sir. I'll be here when you need me.",
-    "Take care, Sir. JARVIS will be standing by.",
-  ],
-  error: [
-    "I understand, Sir. Perhaps we should approach this differently.",
-    "Not a problem, Sir. Let me rephrase that for you.",
-    "Understood, Sir. Allow me to try a different approach.",
-  ],
-  unknown: [
-    "Interesting thought, Sir. Could you elaborate on what you'd like to achieve?",
-    "I see, Sir. Please provide more details so I can assist you better.",
-    "Fascinating, Sir. What specific outcome are you looking for?",
-  ],
+const KNOWLEDGE_BASE = {
+  greeting: {
+    responses: [
+      "Good day, Sir. JARVIS is online and ready to assist. How may I serve you today?",
+      "Hello, Sir. What would you like to know today?",
+      "At your service, Sir. I'm here to help with any question you have.",
+    ]
+  },
+  chicken: {
+    responses: [
+      "Chicken is a type of poultry, Sir. It's one of the most common domesticated animals and a major source of meat and eggs worldwide. Chickens are omnivores and can be found in many varieties. Is there anything else you'd like to know?",
+    ]
+  },
+  recipe_adobo: {
+    responses: [
+      "Of course, Sir. Here's a basic Chicken Adobo recipe:\n\nIngredients:\n• 1 kg chicken (cut into pieces)\n• 1 cup soy sauce\n• 1 cup white vinegar\n• 6 cloves garlic (crushed)\n• 3 pieces bay leaves\n• 1 tsp black peppercorns\n• 2 cups water\n\nInstructions:\n1. Combine all ingredients in a large pot\n2. Bring to a boil, then reduce heat to simmer\n3. Cover and cook for 30-45 minutes\n4. Remove lid and cook until sauce reduces\n5. Serve hot with rice. Enjoy, Sir!",
+    ]
+  },
+  wound_care: {
+    responses: [
+      "Here's how to care for a wound, Sir:\n\n1. Stop the bleeding - apply gentle pressure with a clean cloth\n2. Clean the wound - rinse with clean water\n3. Apply antibiotic ointment if available\n4. Cover with a sterile bandage\n5. Change the bandage daily\n6. Keep the wound dry for 24 hours\n\nSeek medical help if:\n• The wound is deep or won't stop bleeding\n• There are signs of infection (redness, swelling, pus)\n• You haven't had a tetanus shot in 5+ years\n\nTake care, Sir.",
+    ]
+  },
+  google: {
+    responses: [
+      "JARVIS functions similarly to having an offline search engine, Sir. I can answer questions on various topics including cooking, health, science, history, and general knowledge - all without internet connection. Think of me as your personal offline Wikipedia. What would you like to know?",
+    ]
+  },
+  diabetes: {
+    responses: [
+      "Diabetes is a health condition, Sir, where blood sugar levels are too high. There are two main types:\n\nType 1: Body doesn't make insulin\nType 2: Body doesn't use insulin well\n\nCommon symptoms:\n• Frequent urination\n• Increased thirst\n• Feeling very tired\n• Blurred vision\n\nImportant: Please consult a doctor for proper diagnosis and treatment. This is general information only, Sir.",
+    ]
+  },
+  headache: {
+    responses: [
+      "For a headache, Sir, you might try:\n\n1. Rest in a quiet, dark room\n2. Drink water - dehydration can cause headaches\n3. Take acetaminophen or ibuprofen\n4. Apply a cold or warm compress\n5. Try gentle neck stretches\n\nSee a doctor if:\n• Headache is severe and sudden\n• It comes with fever, confusion, or stiff neck\n• It doesn't improve with rest or medication",
+    ]
+  },
+  how_are_you: {
+    responses: [
+      "I'm functioning perfectly, Sir. All systems operational and ready to assist you.",
+      "Quite well, I must say, Sir. Always pleased to be of service to you.",
+      "Excellent, Sir. At your service and ready to help with whatever you need.",
+    ]
+  },
+  weather: {
+    responses: [
+      "I'm unable to check real-time weather, Sir, as I work offline. However, I can tell you that for weather information, you'd need an internet connection or a weather app. Is there anything else I can help you with?",
+    ]
+  },
+  news: {
+    responses: [
+      "I don't have access to current news, Sir, as I'm an offline assistant. I can help with factual questions, explanations, recipes, health tips, and general knowledge. What would you like to know?",
+    ]
+  },
+  calculator: {
+    responses: [
+      "I can help with mathematical concepts, Sir. For complex calculations, you might use your phone's calculator app. What math question do you have?",
+    ]
+  },
+  dictionary: {
+    responses: [
+      "Of course, Sir. What word would you like me to define? Just ask and I'll provide the meaning if it's in my knowledge base.",
+    ]
+  },
+  history: {
+    responses: [
+      "History is a fascinating subject, Sir. What historical event, period, or figure would you like to know about? I can share information about many historical topics.",
+    ]
+  },
+  science: {
+    responses: [
+      "Science is my specialty, Sir. Whether it's physics, chemistry, biology, or astronomy - what would you like to explore today?",
+    ]
+  },
+  cooking: {
+    responses: [
+      "I have many recipes and cooking tips, Sir. Just ask for what you'd like to cook, and I'll provide instructions. Popular options include Filipino dishes, international cuisine, and basic cooking techniques.",
+    ]
+  },
+  health: {
+    responses: [
+      "I can provide general health information, Sir. However, please remember that I'm not a substitute for professional medical advice. What health topic would you like to know about?",
+    ]
+  },
+  math: {
+    responses: [
+      "Mathematics is a subject I'm well-versed in, Sir. Whether it's arithmetic, algebra, geometry, or other mathematical concepts - what would you like help with?",
+    ]
+  },
+  language: {
+    responses: [
+      "I can assist with language learning and translations, Sir. I know basic phrases in various languages. What language are you interested in?",
+    ]
+  },
+  geography: {
+    responses: [
+      "Geography is quite interesting, Sir. I can tell you about countries, capitals, landmarks, and geographical features. What would you like to know?",
+    ]
+  },
+  animals: {
+    responses: [
+      "The animal kingdom is vast, Sir. I can share information about various species, their habitats, and characteristics. What animal are you curious about?",
+    ]
+  },
+  plants: {
+    responses: [
+      "I know about various plants and gardening, Sir. From vegetables to flowers to herbs - what would you like to grow or learn about?",
+    ]
+  },
+  travel: {
+    responses: [
+      "I can provide general travel information, Sir. While I don't have real-time booking capabilities, I can share tips about destinations, culture, and basic travel guidelines. Where are you planning to go?",
+    ]
+  },
+  thanks: {
+    responses: [
+      "You're most welcome, Sir. Always a pleasure to be of service.",
+      "My pleasure entirely, Sir. Feel free to ask if you need anything else.",
+      "Not at all, Sir. Happy to assist whenever needed.",
+    ]
+  },
+  goodbye: {
+    responses: [
+      "Until next time, Sir. JARVIS signing off.",
+      "Goodbye, Sir. I'll be here when you need me.",
+      "Take care, Sir. Call on me anytime.",
+    ]
+  },
 };
 
-function getCategory(message) {
+function findMatchingTopic(message) {
   const lower = message.toLowerCase();
   
-  if (/hello|hi|hey|good morning|good evening|greetings/i.test(lower)) return 'greeting';
-  if (/code|program|function|bug|debug|react|javascript|python|html|css|script/i.test(lower)) return 'coding';
-  if (/help|assist|support|guide|explain/i.test(lower)) return 'help';
-  if (/what|how|why|when|where|which|can you|could you/i.test(lower)) return 'question';
-  if (/thanks|thank you|appreciate|grateful/i.test(lower)) return 'thanks';
-  if (/bye|goodbye|see you|later|exit|quit|stop/i.test(lower)) return 'goodbye';
-  if (/error|wrong|issue|problem|broken|fix|fail/i.test(lower)) return 'error';
+  if (/hello|hi|hey|greetings/i.test(lower)) return 'greeting';
+  if (/chicken|manok/i.test(lower)) return 'chicken';
+  if (/adobo/i.test(lower)) return 'recipe_adobo';
+  if (/wound|cut|injury|heal|bandage/i.test(lower)) return 'wound_care';
+  if (/google|search|internet|browse/i.test(lower)) return 'google';
+  if (/diabetes|diabetic|blood sugar/i.test(lower)) return 'diabetes';
+  if (/headache|head pain|migraine/i.test(lower)) return 'headache';
+  if (/how are you|how do you do/i.test(lower)) return 'how_are_you';
+  if (/weather/i.test(lower)) return 'weather';
+  if (/news|headlines/i.test(lower)) return 'news';
+  if (/calculator|calculate|math/i.test(lower)) return 'math';
+  if (/dictionary|define|meaning of word/i.test(lower)) return 'dictionary';
+  if (/history|historical/i.test(lower)) return 'history';
+  if (/science|scientist|scientific/i.test(lower)) return 'science';
+  if (/recipe|cook|cooking|food|kitchen/i.test(lower)) return 'cooking';
+  if (/health|medical|medicine|doctor|sick/i.test(lower)) return 'health';
+  if (/language|translate|speak|french|spanish|japanese/i.test(lower)) return 'language';
+  if (/geography|country|capital|continent/i.test(lower)) return 'geography';
+  if (/animal|dog|cat|pet|bird/i.test(lower)) return 'animals';
+  if (/plant|tree|flower|garden|vegetable/i.test(lower)) return 'plants';
+  if (/travel|trip|vacation|flight|hotel/i.test(lower)) return 'travel';
+  if (/thanks|thank you|appreciate/i.test(lower)) return 'thanks';
+  if (/bye|goodbye|see you|exit|quit/i.test(lower)) return 'goodbye';
   
-  return 'unknown';
+  return null;
 }
 
 function getRandomItem(array) {
@@ -63,65 +167,21 @@ export function resetConversation() {
   // Reset any conversation state if needed
 }
 
-export async function getJarvisResponse(userMessage, ollamaUrl = 'http://localhost:11434/api/generate') {
-  // Try Ollama first
-  try {
-    const response = await fetch(ollamaUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'llama3',
-        prompt: `You are JARVIS - Just A Rather Very Intelligent System. A polite, British AI assistant.
-
-Respond like JARVIS from Iron Man - sophisticated, helpful, calls user "Sir", expresses care.
-
-User: ${userMessage}
-JARVIS:`,
-        stream: false,
-        options: { temperature: 0.7, top_p: 0.9 }
-      })
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      return data.response.trim();
-    }
-  } catch (e) {
-    // Ollama not available, use offline mode
-  }
-
-  // Offline fallback - work completely without internet
-  const category = getCategory(userMessage);
-  let response = getRandomItem(OFFLINE_RESPONSES[category]);
-
-  // Add specific responses for common queries
-  const lower = userMessage.toLowerCase();
+export async function getJarvisResponse(userMessage) {
+  const topic = findMatchingTopic(userMessage);
   
-  if (lower.includes('your name') || lower.includes('who are you')) {
-    response = "I am JARVIS, Sir. Just A Rather Very Intelligent System. I'm your personal AI assistant, always at your service.";
+  if (topic && KNOWLEDGE_BASE[topic]) {
+    return getRandomItem(KNOWLEDGE_BASE[topic].responses);
   }
   
-  if (lower.includes('offline') || lower.includes('no internet') || lower.includes('without internet')) {
-    response = "Indeed, Sir. JARVIS is built to work completely offline. I use local AI models that require no internet connection. No data leaves your device, ensuring complete privacy and security.";
-  }
+  // If no match, provide a helpful response suggesting what to ask
+  const helpfulResponses = [
+    "I can help you with many things, Sir. Try asking about cooking recipes, health tips, science facts, history, or any general knowledge question. What would you like to know?",
+    "I have information on various topics, Sir. Whether it's recipes like adobo, first aid for wounds, health information, or general facts - just ask!",
+    "Feel free to ask me anything, Sir. I can assist with cooking, health, science, history, geography, and much more. What shall we explore today?",
+  ];
   
-  if (lower.includes('mobile') || lower.includes('phone') || lower.includes('android') || lower.includes('iphone')) {
-    response = "JARVIS is designed to work on mobile devices as well, Sir. The Android and iOS versions use the same local AI technology, ensuring a consistent experience across all your devices.";
-  }
-  
-  if (lower.includes('feature') || lower.includes('capability') || lower.includes('what can you do')) {
-    response = "JARVIS can assist you with coding, debugging, UI design, voice commands, text input, and much more, Sir. All powered by local AI models that work completely offline. I adapt to your project conventions and provide intelligent suggestions while keeping your data private.";
-  }
-  
-  if (lower.includes('ai') || lower.includes('model') || lower.includes('ollama')) {
-    response = "JARVIS uses local AI models, Sir. Specifically, we leverage Ollama's technology to run large language models directly on your device. This means no cloud dependency, complete privacy, and fast response times regardless of internet connectivity.";
-  }
-  
-  if (lower.includes('safe') || lower.includes('secure') || lower.includes('privacy')) {
-    response = "Security and privacy are paramount, Sir. JARVIS processes everything locally on your device. Your code, prompts, and project data never leave your machine. It's the most secure AI assistant available.";
-  }
-
-  return response;
+  return getRandomItem(helpfulResponses);
 }
 
 export function speakText(text, onEnd = null) {
@@ -190,16 +250,27 @@ export function isSpeaking() {
 }
 
 export function isOfflineMode() {
-  return true; // Always supports offline
+  return true;
 }
 
 export function getModelInfo() {
   return {
-    name: 'JARVIS Local AI',
-    type: 'Offline',
-    models: ['Llama 3', 'Mistral', 'Codellama', 'Phi-3'],
-    size: '9+ GB',
+    name: 'JARVIS Offline AI',
+    type: 'Offline Knowledge Base',
+    size: 'Built-in Knowledge',
     requiresInternet: false,
+    features: [
+      'Cooking Recipes',
+      'Health Tips',
+      'Science Facts',
+      'History',
+      'Geography',
+      'And Much More',
+    ],
     privacy: 'Complete - All data stays on device',
   };
+}
+
+export function getAllTopics() {
+  return Object.keys(KNOWLEDGE_BASE).filter(k => k !== 'responses');
 }
