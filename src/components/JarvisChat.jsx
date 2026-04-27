@@ -100,7 +100,9 @@ function JarvisChat() {
           </div>
           <div>
             <p className="font-display text-sm font-semibold text-white">JARVIS</p>
-            <p className="text-xs text-slate-400">{isListening ? 'Listening...' : isSpeaking ? 'Speaking...' : 'Online'}</p>
+            <p className="text-xs text-slate-400">
+              {isListening ? 'Listening...' : isSpeaking ? 'Speaking...' : 'Offline Mode Active'}
+            </p>
           </div>
         </div>
         <button
@@ -193,7 +195,7 @@ function JarvisChat() {
             {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
           </button>
         </div>
-        <p className="mt-2 text-center text-xs text-slate-500">Powered by Ollama • Press Enter or use voice to chat</p>
+        <p className="mt-2 text-center text-xs text-slate-500">Offline Mode • Works without internet • Text or voice input</p>
       </div>
     </div>
   );
