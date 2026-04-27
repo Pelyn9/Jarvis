@@ -35,3 +35,24 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+const { spawn } = require('child_process');
+
+function checkOllama() {
+  return new Promise((resolve) => {
+    const ollama = spawn('ollama', ['list'], { shell: true });
+    let output = '';
+    ollama.stdout.on('data', (data) => { output += data.toString(); });
+    ollama.on('close', (code) => {
+      if (code === 0) {
+        console.log('Ollama is running. Available models:\n', output);
+        resolve(true);
+      } else {
+        console.log('Ollama not found. Please install Ollama from https://ollama.com');
+        resolve(false);
+      }
+    });
+  });
+}
+
+checkOllama();

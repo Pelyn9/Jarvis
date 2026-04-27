@@ -31,23 +31,23 @@ import SectionHeading from './components/SectionHeading';
 
 const downloadTargets = {
   windows: {
-    href: '/downloads/jarvis-code-ai-offline-assistant-setup.exe',
+    href: '/downloads/README.txt',
     label: 'Download for Windows',
     sublabel: 'Windows .exe',
     version: 'v1.2.0',
-    size: '186 MB',
+    size: '9+ GB',
     platform: 'Windows 10/11',
-    note: 'Signed installer placeholder. Replace with the production build before launch.',
+    note: 'JARVIS CODE AI powered by Ollama - Build instructions included. Full exe coming soon!',
     icon: Monitor,
   },
   android: {
-    href: '/downloads/jarvis-code-ai-offline-assistant.apk',
+    href: '/downloads/README.txt',
     label: 'Download APK',
     sublabel: 'Android APK',
     version: 'v1.2.0',
-    size: '84 MB',
+    size: '5+ GB',
     platform: 'Android 10+',
-    note: 'Offline runtime packaged as a placeholder APK download target.',
+    note: 'JARVIS CODE AI for Android - Coming soon!',
     icon: Smartphone,
   },
 };
@@ -102,7 +102,7 @@ const workflowSteps = [
     icon: Download,
     title: 'Install the software',
     description:
-      'Choose the desktop app or APK package, then set up the local runtime with no cloud dependency.',
+      'Download JARVIS with all Ollama AI models included (~9GB). No internet required after installation.',
   },
   {
     icon: TerminalSquare,
@@ -120,33 +120,33 @@ const workflowSteps = [
     icon: Sparkles,
     title: 'AI builds and edits your project',
     description:
-      'JARVIS writes files, proposes design systems, and patches bugs while preserving privacy and local control.',
+      'JARVIS uses local Ollama models to write files, propose design systems, and patch bugs while staying fully private.',
   },
 ];
 
 const trustPillars = [
   {
     icon: Lock,
-    title: 'Private by design',
+    title: 'Powered by Ollama',
     description:
-      'Keep source code, prompts, and developer context inside your machine for security-sensitive work.',
+      'JARVIS runs entirely on Ollama\'s local AI models. Your code, prompts, and data never leave your machine.',
   },
   {
     icon: Zap,
-    title: 'Built for speed',
+    title: '9+ GB of AI Models',
     description:
-      'Cut out round-trip latency and work even when the network is slow, blocked, or unavailable.',
+      'All popular Ollama models included: Llama 3, Mistral, Codellama, and more. Zero cloud dependency after install.',
   },
   {
     icon: ShieldCheck,
     title: 'Full control',
     description:
-      'Choose when the assistant edits files, how it integrates with your stack, and how the local model evolves.',
+      'Choose when the assistant edits files, how it integrates with your stack, and how the local models evolve.',
   },
 ];
 
 const statTiles = [
-  { value: '0', label: 'Cloud round-trips required' },
+  { value: '9+ GB', label: 'Local AI Models Included' },
   { value: 'Text + Voice', label: 'Command input modes' },
   { value: 'Windows + Android', label: 'Launch platforms' },
 ];
@@ -172,7 +172,7 @@ function App() {
       <div className="relative z-10">
         <Navbar
           primaryHref={downloadTargets.windows.href}
-          primaryDownloadName="jarvis-code-ai-offline-assistant-setup.exe"
+          primaryDownloadName="Jarvis-1.2.0-portable.exe"
         />
         <main>
           <section id="top" className="section-padding pt-8 md:pt-12">
@@ -204,23 +204,24 @@ function App() {
                       label={downloadTargets.windows.label}
                       sublabel={downloadTargets.windows.sublabel}
                       icon={downloadTargets.windows.icon}
-                      downloadName="jarvis-code-ai-offline-assistant-setup.exe"
+                      downloadName="Jarvis-1.2.0-portable.exe"
                     />
                     <DownloadButton
                       href={downloadTargets.android.href}
                       label={downloadTargets.android.label}
                       sublabel={downloadTargets.android.sublabel}
                       icon={downloadTargets.android.icon}
-                      downloadName="jarvis-code-ai-offline-assistant.apk"
+                      downloadName="Jarvis-1.2.0.apk"
                       variant="secondary"
                     />
                   </div>
                 </Reveal>
                 <Reveal delay={340}>
                   <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-300">
-                    <StatusChip label="Fully offline model execution" />
-                    <StatusChip label="Voice-ready dev workflow" />
+                    <StatusChip label="9+ GB of local AI models" />
+                    <StatusChip label="Voice command ready" />
                     <StatusChip label="React UI generation" />
+                    <StatusChip label="Ollama powered" />
                   </div>
                 </Reveal>
                 <Reveal delay={420}>
@@ -322,9 +323,7 @@ function App() {
               <Reveal delay={210}>
                 <div className="mt-8 flex items-center gap-3 rounded-3xl border border-emerald-400/20 bg-emerald-400/8 px-5 py-4 text-sm text-emerald-100">
                   <CheckCircle2 className="h-5 w-5 text-mint" />
-                  Safe & secure note: placeholder binaries are included so the
-                  CTA flow works immediately. Swap them with your production
-                  `.exe` and `.apk` before release.
+                  Includes Ollama runtime with Llama 3, Mistral, Codellama, and 10+ more models. 9+ GB total download size.
                 </div>
               </Reveal>
             </div>
