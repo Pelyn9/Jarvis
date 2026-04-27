@@ -28,6 +28,7 @@ import Navbar from './components/Navbar';
 import PreviewCard from './components/PreviewCard';
 import Reveal from './components/Reveal';
 import SectionHeading from './components/SectionHeading';
+import JarvisChat from './components/JarvisChat';
 
 const downloadTargets = {
   windows: {
@@ -330,119 +331,16 @@ function App() {
           </section>
 
           <section id="preview" className="section-padding">
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-3xl">
               <Reveal>
                 <SectionHeading
-                  eyebrow="Preview"
-                  title="UI mockups that sell the product before the first install"
-                  description="The preview section simulates the core surfaces a buyer expects to see: VS Code integration, an AI console, and generated UI output."
+                  eyebrow="Try JARVIS"
+                  title="Chat with JARVIS - Your AI Assistant"
+                  description="Experience JARVIS powered by Ollama. Type or speak your commands and hear JARVIS respond in his sophisticated British tone."
                 />
               </Reveal>
-              <div className="mt-12 grid gap-6 lg:grid-cols-3">
-                <Reveal delay={60}>
-                  <PreviewCard
-                    eyebrow="VS Code Integration"
-                    title="In-editor workspace control"
-                  >
-                    <div className="mockup-window h-full">
-                      <div className="mockup-topbar">
-                        <div className="mockup-dots">
-                          <span />
-                          <span />
-                          <span />
-                        </div>
-                        <span className="text-[10px] uppercase tracking-[0.26em] text-slate-400">
-                          jarvis-workspace.code-workspace
-                        </span>
-                      </div>
-                      <div className="mt-4 grid flex-1 grid-cols-[72px_1fr] gap-4">
-                        <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-3">
-                          <div className="space-y-3">
-                            <div className="h-9 rounded-xl bg-electric/10" />
-                            <div className="h-9 rounded-xl bg-white/5" />
-                            <div className="h-9 rounded-xl bg-white/5" />
-                          </div>
-                        </div>
-                        <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-4">
-                          <div className="mb-4 flex items-center justify-between text-xs text-slate-400">
-                            <span>App.jsx</span>
-                            <span>Offline mode active</span>
-                          </div>
-                          <div className="space-y-3">
-                            <CodeLine number="12" width="84%" />
-                            <CodeLine number="13" width="61%" tone="cyan" />
-                            <CodeLine number="14" width="74%" />
-                            <CodeLine number="15" width="48%" tone="mint" />
-                            <CodeLine number="16" width="92%" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </PreviewCard>
-                </Reveal>
-
-                <Reveal delay={120}>
-                  <PreviewCard
-                    eyebrow="Assistant Panel"
-                    title="Prompt, inspect, iterate"
-                  >
-                    <div className="mockup-window">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-semibold text-white">
-                            JARVIS Console
-                          </p>
-                          <p className="mt-1 text-xs text-slate-400">
-                            Listening for text or voice instructions
-                          </p>
-                        </div>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-100">
-                          <span className="h-2 w-2 rounded-full bg-mint animate-pulse" />
-                          Local model online
-                        </div>
-                      </div>
-                      <div className="mt-5 space-y-4">
-                        <Bubble
-                          label="You"
-                          text="Generate a premium pricing section for the landing page."
-                        />
-                        <Bubble
-                          label="JARVIS"
-                          text="Created React layout, added CTA hierarchy, and applied glassmorphism with responsive spacing."
-                          highlight
-                        />
-                        <div className="flex flex-wrap gap-3">
-                          <Tag label="Patch files" />
-                          <Tag label="Open preview" />
-                          <Tag label="Explain changes" />
-                        </div>
-                      </div>
-                    </div>
-                  </PreviewCard>
-                </Reveal>
-
-                <Reveal delay={180}>
-                  <PreviewCard
-                    eyebrow="Generated UI"
-                    title="React-ready design output"
-                  >
-                    <div className="mockup-window">
-                      <div className="grid gap-4">
-                        <div className="rounded-3xl border border-cyan-400/15 bg-gradient-to-br from-cyan-400/12 to-transparent p-4">
-                          <div className="h-28 rounded-[1.35rem] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(85,243,255,0.18),_transparent_55%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]" />
-                          <div className="mt-4 space-y-3">
-                            <div className="h-3 w-5/6 rounded-full bg-white/70" />
-                            <div className="h-3 w-2/3 rounded-full bg-white/25" />
-                          </div>
-                        </div>
-                        <div className="grid gap-3 sm:grid-cols-2">
-                          <MiniPanel />
-                          <MiniPanel />
-                        </div>
-                      </div>
-                    </div>
-                  </PreviewCard>
-                </Reveal>
+              <div className="mt-12">
+                <JarvisChat />
               </div>
             </div>
           </section>
@@ -480,7 +378,7 @@ function App() {
             </div>
             <div className="flex flex-wrap gap-3">
               <FooterLink
-                href="https://github.com/yourusername/jarvis-code-ai"
+                href="https://github.com/Pelyn9/Jarvis"
                 icon={Github}
                 label="GitHub"
               />
